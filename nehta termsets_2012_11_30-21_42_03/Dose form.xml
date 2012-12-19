@@ -1,0 +1,15 @@
+<ots:query xmlns:ots="urn:xmlns:oceaninformatics.biz:schema:OTSQuerySchema" name="Dose form" language="en-GB" terminology="Snomed" parentQuery="" description="" baseQuery="" cacheMode="Permanent" pruneDeadHeads="true">
+   <childNodes>
+      <placeHolder text="Other">
+         <childNodes>
+            <tree conceptId="421967003" maxDepth="0" rootOperation="Passthrough" treeOperation="Select" treeRelationship="116680003" reverseTreeRelationship="true"></tree>
+         </childNodes>
+      </placeHolder>
+      <concept conceptId="385055001" operation="Select"></concept>
+      <concept conceptId="385101003" operation="Select"></concept>
+      <concept conceptId="385099005" operation="Select"></concept>
+      <concept conceptId="385100002" operation="Select"></concept>
+      <concept conceptId="385124005" operation="Select"></concept>
+      <concept conceptId="7946007" operation="Select"></concept>
+   </childNodes>
+</ots:query>

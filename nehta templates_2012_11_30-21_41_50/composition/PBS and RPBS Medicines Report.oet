@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>1d2f8fb2-5d8a-43c2-88bc-33d3bcfb2bbd</id>
+  <name>PBS and RPBS Medicines Report</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To provide a report on PBS &amp; RPBS data held by Medicare Australia</purpose>
+      <use>Use to report on PBS &amp; RPBS subsidised medicines supplied through funding by Medicare Australia.</use>
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:NEHTA </key>
+        <value>NEHTA Template metadata set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>Copyright: National E-Health Transition Authority</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value> Majority of data items are represented by the ACTION.medication and using the Supplied/Dispensed care pathway step. Date of Supply is represented using the same action/same care pathway step but found in the reference model. 
+There is an outstanding recommendation (in Editor's ToDo list) re adding data element 'Quantity Description' to the ACTION.medication.
+ Modeling of Date of Prescribing is TBD</value>
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>NEHTA CTI Team, National E-Health Transition Authority, Email: clinicalinfo@nehta.gov.au</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1" concept_name="Medicare Data Report" name="PBS and RPBS Report">
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.medication.v1" concept_name="Medication action" max="1" path="/content" name="Item SUPPLIED">
+      <Rule path="/description[at0017]/items[at0020]" name="Medicine Item" />
+      <Rule path="/description[at0017]/items[at0021]" max="0" />
+      <Rule path="/description[at0017]/items[at0024]" max="0" />
+      <Rule path="/description[at0017]/items[at0025]" max="0" />
+      <Rule path="/description[at0017]/items[at0036]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0026]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0040]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0031]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0037]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0032]" name="Number of Repeats" />
+      <Rule path="/protocol[at0030]/items[at0038]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1">
+    <digest id="MD5-CAM-1.0.1">A9B1C61FFCCDBCDA14AD3E718F92D38C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.medication.v1">
+    <digest id="MD5-CAM-1.0.1">4DDF2F7915943B33274665A3A074D7A3</digest>
+  </integrity_checks>
+</template>

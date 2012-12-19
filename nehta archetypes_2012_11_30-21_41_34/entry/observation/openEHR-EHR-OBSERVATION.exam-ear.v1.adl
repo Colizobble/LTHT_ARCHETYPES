@@ -1,0 +1,259 @@
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.exam-ear.v1
+specialise
+	openEHR-EHR-OBSERVATION.exam.v1
+
+concept
+	[at0000.1]	-- Ear Examination Findings
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			author = <
+				["name"] = <"Mona Saleh">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"2012-09-07">
+	>
+	details = <
+		["ar-sy"] = <
+			language = <[ISO_639-1::ar-sy]>
+			purpose = <"لتسجيل الموجودات التي تم العثور عليها عند الفحص البدني">
+			use = <"تم تصميم النموذج ليحتوي على عناقيد مفصلة متعلقة بالفحص بما في ذلك الاكتشاف, الجس, التسمع و القرع بما في هذه العناقيد من تخصيصات.">
+			keywords = <"الفحص", "البدني">
+			misuse = <"">
+			copyright = <"© National E-Health Transition Authority">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording a narrative description and clinical interpretation of the findings observed by a clinician during the ear examination of a patient, and to provide a framework in which to nest detailed CLUSTER archetypes, each of which will further describe the specific aspects of the ear examination in detail.">
+			use = <"Use to record a narrative description of the findings observed by a clinician during an ear examination of a patient. 
+
+Use to incorporate the narrative descriptions of clinical findings within existing or legacy clinical systems into an archetyped format, using the 'Clinical Description' archetype.
+
+Use as a container archetype - to provide a common, queryable ENTRY archetype in which specific, detailed CLUSTER ear examination archetypes can be nested, including CLUSTERS for examination of the mastoid region, pinna, external auditory canal and tympanic membrane. These can be nested within the 'Left Ear' and 'Right Ear' slots to be explicit about the ear under examination.
+
+The 'Examination Findings' slot can be used for any additional CLUSTER archeytypes that are not ear-specific.">
+			keywords = <"examination", "physical">
+			misuse = <"Not to be used for recording history-taking observations - use specific OBSERVATION and CLUSTER archetypes. For example OBSERVATION.story and CLUSTER.symptom.
+
+Not to be used to record stand-alone clinical observations - use specific OBSERVATION archetypes. For example OBSERVATION.blood_pressure, OBSERVATION.body_weight, OBSERVATION.height.">
+			copyright = <"© National E-Health Transition Authority">
+		>
+	>
+	lifecycle_state = <"CommitteeDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"605C9D4E38F598B9506D331BA068AD91">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Ear Examination Findings
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Clinical Description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0.11] occurrences matches {0..1} matches {	-- Symmetry?
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.12, 	-- Symmetrical
+													at0.13]	-- Assymetrical
+												}
+											}
+										}
+									}
+									CLUSTER[at0.7] occurrences matches {0..1} matches {	-- Left Ear Findings
+										items cardinality matches {1..*; unordered} matches {
+											allow_archetype CLUSTER[at0.9] occurrences matches {0..*} matches {	-- Left Ear
+												include
+													archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_auditory_canal\.v1|openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+											}
+										}
+									}
+									CLUSTER[at0.8] occurrences matches {0..1} matches {	-- Right Ear Findings
+										items cardinality matches {1..*; unordered} matches {
+											allow_archetype CLUSTER[at0.10] occurrences matches {0..*} matches {	-- Right Ear
+												include
+													archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam_auditory_canal\.v1|openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0005.1] occurrences matches {0..1} matches {	-- Examination Detail
+										include
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Clinical Interpretation
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["ar-sy"] = <
+			items = <
+				["at0.10"] = <
+					text = <"*Cluster(en)">
+					description = <"**(en)">
+				>
+				["at0.11"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+				["at0.12"] = <
+					text = <"*Symmetrical(en)">
+					description = <"**(en)">
+				>
+				["at0.13"] = <
+					text = <"*Assymetrical(en)">
+					description = <"**(en)">
+				>
+				["at0.7"] = <
+					text = <"*New cluster(en)">
+					description = <"**(en)">
+				>
+				["at0.8"] = <
+					text = <"*New cluster(en)">
+					description = <"**(en)">
+				>
+				["at0.9"] = <
+					text = <"*Cluster(en)">
+					description = <"**(en)">
+				>
+				["at0000"] = <
+					text = <"الموجودات عند الفحص">
+					description = <"لتسجيل الموجودات التي تم تحديدها عند الفحص البدني">
+				>
+				["at0000.1"] = <
+					text = <"*Ear Examination Findings(en)">
+					description = <"*Findings observed by a clinician during the ear examination of a patient.(en)">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Clinical Description(en)">
+					description = <"*Narrative description of the overall findings observed by a clinician during a physical examination of a patient.(en)">
+					comment = <"*May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format.(en)">
+				>
+				["at0005"] = <
+					text = <"تفاصيل الفحص">
+					description = <"تفاصيل حول الفحص البدني">
+				>
+				["at0005.1"] = <
+					text = <"*Examination Detail(en)">
+					description = <"*Structured details of the non-ear specific examination findings.(en)">
+				>
+				["at0006"] = <
+					text = <"*New element(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0.10"] = <
+					text = <"Right Ear">
+					description = <"Examination findings specific for the left ear.">
+				>
+				["at0.11"] = <
+					text = <"Symmetry?">
+					description = <"Are both ears symmetrical?">
+				>
+				["at0.12"] = <
+					text = <"Symmetrical">
+					description = <"Both ears appear symmetrical.">
+				>
+				["at0.13"] = <
+					text = <"Assymetrical">
+					description = <"The ears appear assymetrical.">
+				>
+				["at0.7"] = <
+					text = <"Left Ear Findings">
+					description = <"Detailed left ear findings.">
+				>
+				["at0.8"] = <
+					text = <"Right Ear Findings">
+					description = <"Detailed right ear findings.">
+				>
+				["at0.9"] = <
+					text = <"Left Ear">
+					description = <"Examination findings specific for the left ear.">
+				>
+				["at0000"] = <
+					text = <"Examination Findings">
+					description = <"Findings on physical examination, as determined
+ by a clinician.">
+				>
+				["at0000.1"] = <
+					text = <"Ear Examination Findings">
+					description = <"Findings observed by a clinician during the ear examination of a patient.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Clinical Description">
+					description = <"Narrative description of the overall findings observed by a clinician during a physical examination of a patient.">
+					comment = <"May be used to record a narrative summary of the complete clinical examination or key aspects of clinical examination findings, which will be supported by structured data. Details of specific structured findings can be included using CLUSTER archetypes in the 'Examination Detail' slot. This data element may be used to capture legacy data that is not available in a structured format.">
+				>
+				["at0005"] = <
+					text = <"Examination Detail">
+					description = <"Details of the physical examination findings.">
+				>
+				["at0005.1"] = <
+					text = <"Examination Detail">
+					description = <"Structured details of the non-ear specific examination findings.">
+				>
+				["at0006"] = <
+					text = <"Clinical Interpretation">
+					description = <"Single word, phrase or brief description representing a summary of the examination findings.">
+					comment = <"Coding with a terminology is preferred, if possible. For example, normal examination or chronic otitis media.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,38 @@
+<ots:query xmlns:ots="urn:xmlns:oceaninformatics.biz:schema:OTSQuerySchema" name="Religion" language="en-GB" terminology="Snomed" parentQuery="" description="" baseQuery="" cacheMode="Permanent" pruneDeadHeads="true">
+   <childNodes>
+      <placeHolder text="Other">
+         <childNodes>
+            <tree conceptId="1400009" maxDepth="0" rootOperation="Passthrough" treeOperation="Select" treeRelationship="116680003" reverseTreeRelationship="true">
+               <treeNodes>
+                  <treeNode nodeOperation="Passthrough">
+                     <constraints>
+                        <conceptConstraints>
+                           <conceptConstraint conceptId="108335005" matchRule="MustMatch"></conceptConstraint>
+                        </conceptConstraints>
+                     </constraints>
+                  </treeNode>
+                  <treeNode nodeOperation="Passthrough">
+                     <constraints>
+                        <conceptConstraints>
+                           <conceptConstraint conceptId="108337002" matchRule="MustMatch"></conceptConstraint>
+                        </conceptConstraints>
+                     </constraints>
+                  </treeNode>
+                  <treeNode nodeOperation="Navigate">
+                     <constraints>
+                        <conceptConstraints>
+                           <conceptConstraint conceptId="108336006" matchRule="MustMatch"></conceptConstraint>
+                        </conceptConstraints>
+                     </constraints>
+                  </treeNode>
+               </treeNodes>
+            </tree>
+         </childNodes>
+      </placeHolder>
+      <concept conceptId="33822009" operation="Select"></concept>
+      <concept conceptId="61154002" operation="Select"></concept>
+      <concept conceptId="276116000" operation="Select"></concept>
+      <concept conceptId="271390004" operation="Select"></concept>
+      <concept conceptId="276121002" operation="Select"></concept>
+   </childNodes>
+</ots:query>

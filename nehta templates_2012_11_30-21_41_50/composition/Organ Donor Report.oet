@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>a626492d-8aec-4903-992c-14cd87112f04</id>
+  <name>Organ Donor Report</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To provide a report on organ donation data for an individual, held by Medicare Australia</purpose>
+      <use>Use to report on organ donor related data held on an individual by Medicare Australia.</use>
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value> Context data required for the Report document itself yet to be determined.</value>
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1" concept_name="Medicare Data Report" name="Medicare Organ Donor Report">
+    <Content xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.australian_organ_donor_registry.v1" concept_name="Australian Organ Donor Registration" path="/content" />
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1">
+    <digest id="MD5-CAM-1.0.1">A9B1C61FFCCDBCDA14AD3E718F92D38C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.australian_organ_donor_registry.v1">
+    <digest id="MD5-CAM-1.0.1">98D3E4B591FBE2275D5063724E7246E8</digest>
+  </integrity_checks>
+</template>

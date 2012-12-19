@@ -1,0 +1,35 @@
+<ots:query xmlns:ots="urn:xmlns:oceaninformatics.biz:schema:OTSQuerySchema" name="Dose units" language="en-GB" terminology="Snomed" parentQuery="" description="" baseQuery="" cacheMode="Permanent" pruneDeadHeads="true">
+   <childNodes>
+      <placeHolder text="Units of measure">
+         <childNodes>
+            <concept conceptId="258682000" operation="Select">
+               <childNodes></childNodes>
+            </concept>
+            <concept conceptId="258685003" operation="Select"></concept>
+            <concept conceptId="258683005" operation="Select">
+               <childNodes></childNodes>
+            </concept>
+            <concept conceptId="258684004" operation="Select">
+               <childNodes></childNodes>
+            </concept>
+            <concept conceptId="258686002" operation="Select"></concept>
+            <concept conceptId="258774008" operation="Select"></concept>
+            <concept conceptId="258997004" operation="Select"></concept>
+            <concept conceptId="258672001" operation="Select"></concept>
+            <concept conceptId="258669008" operation="Select"></concept>
+            <concept conceptId="258673006" operation="Select"></concept>
+            <concept conceptId="258770004" operation="Select"></concept>
+         </childNodes>
+      </placeHolder>
+      <placeHolder text="Other">
+         <childNodes>
+            <tree conceptId="408102007" maxDepth="0" rootOperation="Passthrough" treeOperation="Select" treeRelationship="116680003" reverseTreeRelationship="true"></tree>
+         </childNodes>
+      </placeHolder>
+      <concept conceptId="428673006" operation="Select"></concept>
+      <concept conceptId="428641000" operation="Select"></concept>
+      <concept conceptId="415215001" operation="Select"></concept>
+      <concept conceptId="404218003" operation="Select"></concept>
+      <concept conceptId="258773002" operation="Select"></concept>
+   </childNodes>
+</ots:query>

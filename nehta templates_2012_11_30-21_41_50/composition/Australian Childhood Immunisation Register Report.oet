@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6bd517f4-4c49-4bd5-89d7-568f51018060</id>
+  <name>Australian Childhood Immunisation Register Report</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To provide a report on vaccination events data held by the ACIR.</purpose>
+      <use>Use to report on vaccination events data held by the ACIR for use in the PCEHR and related applications.</use>
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:NEHTA </key>
+        <value>NEHTA Template metadata set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>Copyright: National E-Health Transition Authority</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value>Information Provider (Author) and the Vaccine Provider are not modelled explicitly here, although they are made available as part of the underlying Reference Model. Context data required for the Report document itself yet to be determined. </value>
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>NEHTA CTI Team, National E-Health Transition Authority, Email: clinicalinfo@nehta.gov.au</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1" concept_name="Medicare Data Report" name="ACIR Report">
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.medication.v1" concept_name="Medication action" max="1" path="/content" name="Medication action - ADMINISTERED">
+      <Rule path="/description[at0017]/items[at0020]" name="Vaccination Type" />
+      <Rule path="/description[at0017]/items[at0033]" max="0" />
+      <Rule path="/description[at0017]/items[at0021]" max="0" />
+      <Rule path="/description[at0017]/items[at0024]" max="0" />
+      <Rule path="/description[at0017]/items[at0025]" name="Vaccination Dose Number" />
+      <Rule path="/description[at0017]/items[at0036]" max="0" />
+      <Rule path="/protocol[at0030]" hide_on_form="true" />
+      <Rule path="/protocol[at0030]/items[at0026]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0040]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0031]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0037]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0032]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0038]" max="0" />
+    </Content>
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.medication.v1" concept_name="Medication action" max="1" path="/content" name="Medication action - CANCELLED">
+      <Rule path="/description[at0017]/items[at0020]" name="Vaccination Type" />
+      <Rule path="/description[at0017]/items[at0033]" max="0" />
+      <Rule path="/description[at0017]/items[at0021]" max="1">
+        <constraint xsi:type="textConstraint" limitToList="false">
+          <includedValues>Natural Immunity documented</includedValues>
+          <includedValues>Unstable neurological disease</includedValues>
+          <includedValues>Encephalopaty within seven days after a previous vaccination</includedValues>
+          <includedValues>Immedicate severe acute allergic or anaphylactic reaction after any previous vaccination</includedValues>
+          <includedValues>Malignant disease and/or immunosuppressive therapy and/or immunosuppression</includedValues>
+          <includedValues>Allergy to preservative or antibiotic contained in the vaccines</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/description[at0017]/items[at0024]" max="0" />
+      <Rule path="/description[at0017]/items[at0025]" name="Vaccination Dose Number" />
+      <Rule path="/description[at0017]/items[at0036]" max="0" />
+      <Rule path="/protocol[at0030]" hide_on_form="true" />
+      <Rule path="/protocol[at0030]/items[at0026]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0040]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0031]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0037]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0032]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0038]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1">
+    <digest id="MD5-CAM-1.0.1">A9B1C61FFCCDBCDA14AD3E718F92D38C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.medication.v1">
+    <digest id="MD5-CAM-1.0.1">4DDF2F7915943B33274665A3A074D7A3</digest>
+  </integrity_checks>
+</template>

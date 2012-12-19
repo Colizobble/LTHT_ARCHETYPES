@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>c6cbd268-8ff3-4eb3-b96f-4cbe036e9cfb</id>
+  <name>MBS and DVA Services Report</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To provide a report on MBS &amp; DVA data held by Medicare Australia</purpose>
+      <use>Use to report on MBS &amp; DVA funded services supplied through funding by Medicare Australia.</use>
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:NEHTA Set </key>
+        <value>NEHTA Template metadata set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>Copyright: National E-Health Transition Authority</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>NEHTA CTI Team, National E-Health Transition Authority, Email: clinicalinfo@nehta.gov.au</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1" concept_name="Medicare Data Report">
+    <Content xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.medicare_dva_services.v1" concept_name="Medicare/DVA Services" path="/content" />
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.medicare_data_report.v1">
+    <digest id="MD5-CAM-1.0.1">A9B1C61FFCCDBCDA14AD3E718F92D38C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.medicare_dva_services.v1">
+    <digest id="MD5-CAM-1.0.1">AAF19225CF74A678E4BDB017A676B54F</digest>
+  </integrity_checks>
+</template>

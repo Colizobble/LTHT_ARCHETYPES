@@ -1,0 +1,28 @@
+<ots:query xmlns:ots="urn:xmlns:oceaninformatics.biz:schema:OTSQuerySchema" name="Relationship to Subject of Care" language="en-GB" terminology="Snomed" parentQuery="" description="" baseQuery="" cacheMode="Permanent" pruneDeadHeads="true">
+   <childNodes>
+      <concept conceptId="127848009" operation="Select"></concept>
+      <concept conceptId="84390006" operation="Select"></concept>
+      <concept conceptId="79756005" operation="Select"></concept>
+      <concept conceptId="394921008" operation="Select"></concept>
+      <concept conceptId="261008006" operation="Select"></concept>
+      <concept conceptId="83418008" operation="Select"></concept>
+      <tree conceptId="125677006" maxDepth="0" rootOperation="Passthrough" treeOperation="Select" treeRelationship="116680003" reverseTreeRelationship="true">
+         <treeNodes>
+            <treeNode nodeOperation="Exclude">
+               <constraints>
+                  <conceptConstraints>
+                     <conceptConstraint conceptId="125679009" matchRule="MustMatch"></conceptConstraint>
+                  </conceptConstraints>
+               </constraints>
+            </treeNode>
+            <treeNode nodeOperation="Exclude">
+               <constraints>
+                  <conceptConstraints>
+                     <conceptConstraint conceptId="105449001" matchRule="MustMatch"></conceptConstraint>
+                  </conceptConstraints>
+               </constraints>
+            </treeNode>
+         </treeNodes>
+      </tree>
+   </childNodes>
+</ots:query>
